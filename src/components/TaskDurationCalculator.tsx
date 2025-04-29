@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Clock, Timer, Calendar } from 'lucide-react';
+import { Clock, Timer, Calendar, RefreshCw } from 'lucide-react';
 import ResultDisplay from './ResultDisplay';
 
 type FrequencyType = 'day' | 'week' | 'month' | 'year';
@@ -118,6 +118,21 @@ const TaskDurationCalculator = () => {
     calculateTotalTime();
   };
 
+  // Add function to reset all form fields
+  const handleReset = () => {
+    // Reset all form fields to their initial values
+    setTaskName('');
+    setFrequency(1);
+    setFrequencyType('day');
+    setDuration(15);
+    setDurationType('minutes');
+    setTimeHorizon('5');
+    setIsCalculated(false);
+    setTotalTime(0);
+    setFormattedTotal('');
+    setUnit('');
+  };
+
   return (
     <div className="grid gap-8 md:grid-cols-1">
       <Card className="p-6 shadow-md">
@@ -203,12 +218,24 @@ const TaskDurationCalculator = () => {
               </Select>
             </div>
 
-            <Button 
-              type="submit" 
-              className="w-full bg-blue-600 hover:bg-blue-700 transition-colors"
-            >
-              Calculate Total Time
-            </Button>
+            <div className="flex gap-4">
+              <Button 
+                type="submit" 
+                className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
+              >
+                Calculate Total Time
+              </Button>
+              
+              <Button 
+                type="button"
+                variant="outline"
+                className="flex items-center gap-2"
+                onClick={handleReset}
+              >
+                <RefreshCw size={16} />
+                Reset Form
+              </Button>
+            </div>
           </div>
         </form>
       </Card>
