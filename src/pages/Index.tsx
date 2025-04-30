@@ -17,7 +17,7 @@ const Index = () => {
         
        
         <footer class="mt-10 text-center text-gray-500 text-sm">
-          <p>© 2025 by 
+          <p>© 2025 by&nbsp;
             <a href="https://www.linkedin.com/in/miguelangelriesgo/" 
                target="_blank" 
                rel="noopener noreferrer"
