@@ -17,13 +17,17 @@ const Index = () => {
         
        
         <footer class="mt-10 text-center text-gray-500 text-sm">
-          <p>© 2025 by
-            <a href="https://www.linkedin.com/in/miguelangelriesgo/" target="_blank" rel="noopener noreferrer">
+          <p>© 2025 by 
+            <a href="https://www.linkedin.com/in/miguelangelriesgo/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="text-blue-800 font-semibold hover:underline">               
               Miguel Ángel Riesgo Álvarez
             </a>.
           </p>
         </footer>
-        
+
+       
       </div>
     </div>
   );
