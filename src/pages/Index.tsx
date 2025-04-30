@@ -16,7 +16,7 @@ const Index = () => {
         <TaskDurationCalculator />
         
         <footer className="mt-10 text-center text-gray-500 text-sm">
-          <p>© 2025 Task Duration Display. All rights reserved.</p>
+          <p>© 2035 Task Duration Display. All rights reserved.</p>
         </footer>
       </div>
     </div>
