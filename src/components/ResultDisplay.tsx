@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Clock, Timer, Calendar } from 'lucide-react';
+import { Clock, Timer, Calendar, Euro } from 'lucide-react';
 
 type ResultDisplayProps = {
   taskName: string;
@@ -12,6 +12,7 @@ type ResultDisplayProps = {
   duration: number;
   durationType: 'seconds' | 'minutes' | 'hours' | 'days';
   timeHorizon: string;
+  formattedCost: string;
 };
 
 const ResultDisplay = ({
@@ -22,7 +23,8 @@ const ResultDisplay = ({
   frequencyType,
   duration,
   durationType,
-  timeHorizon
+  timeHorizon,
+  formattedCost
 }: ResultDisplayProps) => {
   
   const getTaskDescription = () => {
@@ -70,13 +72,22 @@ const ResultDisplay = ({
         <div className="flex-1">
           <h2 className="text-2xl font-bold text-gray-800 mb-1">Time Investment Results</h2>
           
-          <div className="mt-4 mb-6">
+          <div className="mt-4 mb-2">
             <span className="text-4xl font-bold text-blue-700">{formattedTotal} </span>
             <span className="text-2xl font-semibold text-blue-600">{unit}</span>
           </div>
           
+          <div className="mb-4 flex items-center">
+            <Euro className="h-5 w-5 text-green-600 mr-2" />
+            <span className="text-2xl font-bold text-green-700">{formattedCost}</span>
+          </div>
+          
           <p className="text-gray-700 mb-2">
             You spend <span className="font-semibold">{formattedTotal} {unit}</span> on {getTaskDescription()} over {timeHorizon} {parseInt(timeHorizon) === 1 ? 'year' : 'years'}.
+          </p>
+          
+          <p className="text-gray-700 mb-2">
+            The economic cost of this time is <span className="font-semibold">{formattedCost}</span>.
           </p>
           
           <div className="text-gray-600 text-sm mt-4">

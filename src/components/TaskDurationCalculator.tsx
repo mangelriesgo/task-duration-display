@@ -1,11 +1,10 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Clock, Timer, Calendar, RefreshCw } from 'lucide-react';
+import { Clock, Timer, Calendar, RefreshCw, Euro } from 'lucide-react';
 import ResultDisplay from './ResultDisplay';
 
 type FrequencyType = 'day' | 'week' | 'month' | 'year';
@@ -19,8 +18,11 @@ const TaskDurationCalculator = () => {
   const [duration, setDuration] = useState<number>(15);
   const [durationType, setDurationType] = useState<DurationType>('minutes');
   const [timeHorizon, setTimeHorizon] = useState<TimeHorizon>('5');
+  const [salary, setSalary] = useState<number>(30000);
   const [totalTime, setTotalTime] = useState<number>(0);
+  const [totalCost, setTotalCost] = useState<number>(0);
   const [formattedTotal, setFormattedTotal] = useState<string>('');
+  const [formattedCost, setFormattedCost] = useState<string>('');
   const [unit, setUnit] = useState<string>('');
   const [isCalculated, setIsCalculated] = useState<boolean>(false);
 
@@ -28,7 +30,7 @@ const TaskDurationCalculator = () => {
     if (isCalculated) {
       calculateTotalTime();
     }
-  }, [frequency, frequencyType, duration, durationType, timeHorizon, isCalculated]);
+  }, [frequency, frequencyType, duration, durationType, timeHorizon, salary, isCalculated]);
 
   const calculateTotalTime = () => {
     // Convert duration to minutes for consistent calculations
@@ -75,8 +77,15 @@ const TaskDurationCalculator = () => {
     const years = parseInt(timeHorizon);
     const totalMinutes = durationInMinutes * occurrencesPerYear * years;
     
+    // Calculate cost based on salary
+    // Formula: (yearly salary / (260 working days * 8 hours * 60 minutes)) * total minutes
+    const minuteRate = salary / (260 * 8 * 60);
+    const cost = minuteRate * totalMinutes;
+    
     setTotalTime(totalMinutes);
+    setTotalCost(cost);
     formatTime(totalMinutes);
+    setFormattedCost(cost.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' }));
   };
 
   const formatTime = (totalMinutes: number) => {
@@ -127,9 +136,12 @@ const TaskDurationCalculator = () => {
     setDuration(15);
     setDurationType('minutes');
     setTimeHorizon('5');
+    setSalary(30000);
     setIsCalculated(false);
     setTotalTime(0);
+    setTotalCost(0);
     setFormattedTotal('');
+    setFormattedCost('');
     setUnit('');
   };
 
@@ -202,20 +214,42 @@ const TaskDurationCalculator = () => {
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="timeHorizon">Time Horizon</Label>
-              <Select value={timeHorizon} onValueChange={(value) => setTimeHorizon(value as TimeHorizon)}>
-                <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select time horizon" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="1">1 Year</SelectItem>
-                  <SelectItem value="2">2 Years</SelectItem>
-                  <SelectItem value="3">3 Years</SelectItem>
-                  <SelectItem value="4">4 Years</SelectItem>
-                  <SelectItem value="5">5 Years</SelectItem>
-                </SelectContent>
-              </Select>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="timeHorizon">Time Horizon</Label>
+                <Select value={timeHorizon} onValueChange={(value) => setTimeHorizon(value as TimeHorizon)}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="Select time horizon" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1">1 Year</SelectItem>
+                    <SelectItem value="2">2 Years</SelectItem>
+                    <SelectItem value="3">3 Years</SelectItem>
+                    <SelectItem value="4">4 Years</SelectItem>
+                    <SelectItem value="5">5 Years</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="salary">Annual Gross Salary (€)</Label>
+                <div className="flex items-center">
+                  <div className="relative w-full">
+                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                      <Euro className="h-4 w-4 text-gray-500" />
+                    </div>
+                    <Input 
+                      id="salary"
+                      type="number"
+                      min="0"
+                      step="1000"
+                      value={salary}
+                      onChange={(e) => setSalary(parseInt(e.target.value) || 0)}
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="flex gap-4">
@@ -250,6 +284,7 @@ const TaskDurationCalculator = () => {
           duration={duration}
           durationType={durationType}
           timeHorizon={timeHorizon}
+          formattedCost={formattedCost}
         />
       )}
     </div>
