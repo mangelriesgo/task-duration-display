@@ -52,9 +52,9 @@ const convertToMinutes = (duration: number, durationType: DurationType): number 
 const calculateOccurrencesPerYear = (frequency: number, frequencyType: FrequencyType): number => {
   switch (frequencyType) {
     case 'day':
-      return frequency * 365;
+      return frequency * 250; // Changed from 365 to 250 working days per year
     case 'week':
-      return frequency * 52;
+      return frequency * 50; // Changed from 52 to 50 (250 days / 5 days per week)
     case 'month':
       return frequency * 12;
     case 'year':
