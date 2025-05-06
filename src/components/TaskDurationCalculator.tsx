@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -78,9 +79,11 @@ const TaskDurationCalculator = () => {
     const totalMinutes = durationInMinutes * occurrencesPerYear * years;
     
     // Calculate cost based on salary
-    // Formula: (yearly salary / (260 working days * 8 hours * 60 minutes)) * total minutes
-    const minuteRate = salary / (260 * 8 * 60);
-    const cost = minuteRate * totalMinutes;
+    // Working hours per year: 260 days * 8 hours = 2080 hours
+    const hourlyRate = salary / 2080;
+    // Convert hourly rate to minute rate
+    const minuteRate = hourlyRate / 60;
+    const cost = totalMinutes * minuteRate;
     
     setTotalTime(totalMinutes);
     setTotalCost(cost);
