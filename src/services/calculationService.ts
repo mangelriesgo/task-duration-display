@@ -15,8 +15,8 @@ export const calculateTotalTime = (params: CalculationParams): CalculationResult
   const totalMinutes = durationInMinutes * occurrencesPerYear * years;
   
   // Calculate cost based on salary
-  // Working hours per year: 260 days * 8 hours = 2080 hours
-  const hourlyRate = salary / 2080;
+  // Working hours per year: 250 days * 8 hours = 2000 hours
+  const hourlyRate = salary / 2000;
   // Convert hourly rate to minute rate
   const minuteRate = hourlyRate / 60;
   const cost = totalMinutes * minuteRate;
