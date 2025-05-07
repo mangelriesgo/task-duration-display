@@ -69,7 +69,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 onChange={(e) => setFrequency(parseInt(e.target.value) || 1)}
                 className="w-24"
               />
-              <span className="text-gray-500">times per</span>
+              <span className="text-gray-500">veces por</span>
               <Select value={frequencyType} onValueChange={(value) => setFrequencyType(value as FrequencyType)}>
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select frequency" />
@@ -163,7 +163,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
             onClick={handleReset}
           >
             <RefreshCw size={16} />
-            Reset Form
+            Limpiar Formulario
           </Button>
         </div>
       </div>
