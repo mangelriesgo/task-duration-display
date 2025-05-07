@@ -9,7 +9,7 @@ const Index = () => {
         <header className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2">Duración de una tarea</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Calcula cuánto tiempo dedicas en tareas recurrentes a lo largo del tiempo
+            Calcula cuánto tiempo dedicas en tareas recurrentes a lo largo del tiempo, y el coste asociado
           </p>
         </header>
         
