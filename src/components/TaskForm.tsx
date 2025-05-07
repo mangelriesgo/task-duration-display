@@ -153,7 +153,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
             type="submit" 
             className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
           >
-            Calculate Total Time
+            Calcular tiempo total
           </Button>
           
           <Button 
