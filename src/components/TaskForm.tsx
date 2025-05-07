@@ -48,10 +48,10 @@ const TaskForm: React.FC<TaskFormProps> = ({
     <form onSubmit={handleSubmit}>
       <div className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="taskName">Task Name (optional)</Label>
+          <Label htmlFor="taskName">Nombre de la tarea (opcional)</Label>
           <Input 
             id="taskName"
-            placeholder="e.g., Manual lead qualification, client onboarding, ..."
+            placeholder="e.g., Cualificación manual de leads, onboarding de clientes, ..."
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
           />
@@ -59,7 +59,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="frequency">Frequency</Label>
+            <Label htmlFor="frequency">Frecuencia</Label>
             <div className="flex items-center space-x-2">
               <Input 
                 id="frequency"
@@ -85,7 +85,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="duration">Duration</Label>
+            <Label htmlFor="duration">Duración</Label>
             <div className="flex items-center space-x-2">
               <Input 
                 id="duration"
@@ -112,7 +112,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="timeHorizon">Time Horizon</Label>
+            <Label htmlFor="timeHorizon">Horizonte de tiempo</Label>
             <Select value={timeHorizon} onValueChange={(value) => setTimeHorizon(value as TimeHorizon)}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select time horizon" />
@@ -128,7 +128,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="salary">Annual Gross Salary (€)</Label>
+            <Label htmlFor="salary">Salario bruto anual promedio (€)</Label>
             <div className="flex items-center">
               <div className="relative w-full">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
