@@ -76,7 +76,7 @@ export const formatTime = (totalMinutes: number): { formattedTotal: string, unit
     // Less than a week, display in days
     const days = totalMinutes / (8 * 60); // Converting to working days (8 hours per day)
     return { formattedTotal: days.toFixed(1), unit: 'days' };
-  } else if (totalMinutes < 30 * 24 * 60) {
+  } else if (totalMinutes < 30 * 8 * 60) {
     // Less than a month, display in weeks
     const weeks = totalMinutes / (7 * 24 * 60);
     return { formattedTotal: weeks.toFixed(1), unit: 'weeks' };
