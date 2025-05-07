@@ -75,10 +75,10 @@ const TaskForm: React.FC<TaskFormProps> = ({
                   <SelectValue placeholder="Select frequency" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="day">Day</SelectItem>
-                  <SelectItem value="week">Week</SelectItem>
-                  <SelectItem value="month">Month</SelectItem>
-                  <SelectItem value="year">Year</SelectItem>
+                  <SelectItem value="díaday">Día</SelectItem>
+                  <SelectItem value="week">Semana</SelectItem>
+                  <SelectItem value="month">Mes</SelectItem>
+                  <SelectItem value="year">Año</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -100,10 +100,10 @@ const TaskForm: React.FC<TaskFormProps> = ({
                   <SelectValue placeholder="Select time unit" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="seconds">Seconds</SelectItem>
-                  <SelectItem value="minutes">Minutes</SelectItem>
-                  <SelectItem value="hours">Hours</SelectItem>
-                  <SelectItem value="days">Days</SelectItem>
+                  <SelectItem value="seconds">Segundos</SelectItem>
+                  <SelectItem value="minutes">Minutos</SelectItem>
+                  <SelectItem value="hours">Horas</SelectItem>
+                  <SelectItem value="days">Días</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -118,11 +118,11 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 <SelectValue placeholder="Select time horizon" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="1">1 Year</SelectItem>
-                <SelectItem value="2">2 Years</SelectItem>
-                <SelectItem value="3">3 Years</SelectItem>
-                <SelectItem value="4">4 Years</SelectItem>
-                <SelectItem value="5">5 Years</SelectItem>
+                <SelectItem value="1">1 Años</SelectItem>
+                <SelectItem value="2">2 Años</SelectItem>
+                <SelectItem value="3">3 Años</SelectItem>
+                <SelectItem value="4">4 Años</SelectItem>
+                <SelectItem value="5">5 Años</SelectItem>
               </SelectContent>
             </Select>
           </div>
