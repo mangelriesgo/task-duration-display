@@ -69,7 +69,7 @@ const TaskDurationCalculator = () => {
   return (
     <div className="grid gap-8 md:grid-cols-1">
       <Card className="p-6 shadow-md">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">Task Information</h2>
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Información de la tarea</h2>
         <TaskForm
           taskName={taskName}
           setTaskName={setTaskName}
