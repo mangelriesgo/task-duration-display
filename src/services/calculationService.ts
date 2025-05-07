@@ -68,21 +68,21 @@ export const formatTime = (totalMinutes: number): { formattedTotal: string, unit
   if (totalMinutes < 60) {
     // Less than an hour, display in minutes
     return { formattedTotal: totalMinutes.toFixed(0), unit: 'minutes' };
-  } else if (totalMinutes < 24 * 60) {
+  } else if (totalMinutes < 8 * 60) {
     // Less than a day, display in hours
     const hours = totalMinutes / 60;
     return { formattedTotal: hours.toFixed(1), unit: 'hours' };
-  } else if (totalMinutes < 7 * 24 * 60) {
+  } else if (totalMinutes < 7 * 8 * 60) {
     // Less than a week, display in days
     const days = totalMinutes / (8 * 60); // Converting to working days (8 hours per day)
     return { formattedTotal: days.toFixed(1), unit: 'days' };
-  } else if (totalMinutes < 30 * 8 * 60) {
+  } else if (totalMinutes < 20.8 * 8 * 60) {
     // Less than a month, display in weeks
-    const weeks = totalMinutes / (7 * 24 * 60);
+    const weeks = totalMinutes / (5 * 8 * 60);
     return { formattedTotal: weeks.toFixed(1), unit: 'weeks' };
-  } else if (totalMinutes < 365 * 24 * 60) {
+  } else if (totalMinutes < 250 * 8 * 60) {
     // Less than a year, display in months
-    const months = totalMinutes / (30 * 24 * 60);
+    const months = totalMinutes / (20.8 * 8 * 60);
     return { formattedTotal: months.toFixed(1), unit: 'months' };
   } else {
     // More than a year, display in years
