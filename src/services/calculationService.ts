@@ -74,7 +74,7 @@ export const formatTime = (totalMinutes: number): { formattedTotal: string, unit
     return { formattedTotal: hours.toFixed(1), unit: 'hours' };
   } else if (totalMinutes < 7 * 24 * 60) {
     // Less than a week, display in days
-    const days = totalMinutes / (24 * 60);
+    const days = totalMinutes / (8 * 60); /MARA
     return { formattedTotal: days.toFixed(1), unit: 'days' };
   } else if (totalMinutes < 30 * 24 * 60) {
     // Less than a month, display in weeks
