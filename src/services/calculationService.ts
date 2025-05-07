@@ -86,7 +86,7 @@ export const formatTime = (totalMinutes: number): { formattedTotal: string, unit
     return { formattedTotal: months.toFixed(1), unit: 'months' };
   } else {
     // More than a year, display in years
-    const years = totalMinutes / (365 * 24 * 60);
+    const years = totalMinutes / (250 * 8 * 60);
     return { formattedTotal: years.toFixed(1), unit: 'years' };
   }
 };
