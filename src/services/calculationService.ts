@@ -1,4 +1,11 @@
 
+// Datos:
+// 250 días laborables al año
+// 8 horas laborables por día
+// 20.8 dias laborables por mes
+// 5 días laborables por semana
+// 50 semanas laborables al año
+
 import { CalculationParams, CalculationResult, DurationType, FrequencyType } from "@/types/calculator";
 
 export const calculateTotalTime = (params: CalculationParams): CalculationResult => {
