@@ -51,7 +51,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           <Label htmlFor="taskName">Nombre de la tarea (opcional)</Label>
           <Input 
             id="taskName"
-            placeholder="e.g., Cualificación manual de leads, onboarding de clientes, ..."
+            placeholder="p.e., Cualificación manual de leads, onboarding de clientes, ..."
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
           />
