@@ -151,7 +151,9 @@ const TaskForm: React.FC<TaskFormProps> = ({
         <div className="flex gap-4">
           <Button 
             type="submit" 
-            className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
+            // className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
+              className="flex-1 bg-[#A0E00D] hover:bg-[#8FCC0B] transition-colors"
+
           >
             Calcular tiempo total
           </Button>
