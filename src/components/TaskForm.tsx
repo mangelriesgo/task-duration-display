@@ -44,6 +44,14 @@ const TaskForm: React.FC<TaskFormProps> = ({
   handleSubmit,
   handleReset
 }) => {
+  const handleFrequencyFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
+  };
+
+  const handleDurationFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="space-y-6">
@@ -67,6 +75,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 min="1"
                 value={frequency}
                 onChange={(e) => setFrequency(parseInt(e.target.value) || 1)}
+                onFocus={handleFrequencyFocus}
                 className="w-24"
               />
               <span className="text-gray-500">veces por</span>
@@ -93,6 +102,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 min="1"
                 value={duration}
                 onChange={(e) => setDuration(parseInt(e.target.value) || 1)}
+                onFocus={handleDurationFocus}
                 className="w-24"
               />
               <Select value={durationType} onValueChange={(value) => setDurationType(value as DurationType)}>
