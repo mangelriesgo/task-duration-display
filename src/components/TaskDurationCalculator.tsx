@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import ResultDisplay from './ResultDisplay';
@@ -25,7 +24,7 @@ const TaskDurationCalculator = () => {
     if (isCalculated) {
       performCalculation();
     }
-  }, [frequency, frequencyType, duration, durationType, timeHorizon, salary, isCalculated]);
+  }, [frequencyType, durationType, timeHorizon, salary, isCalculated]);
 
   const performCalculation = () => {
     const result = calculateTotalTime({
