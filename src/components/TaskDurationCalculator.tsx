@@ -24,7 +24,7 @@ const TaskDurationCalculator = () => {
     if (isCalculated) {
       performCalculation();
     }
-  }, [frequencyType, durationType, timeHorizon, salary, isCalculated]);
+  }, [frequencyType, durationType, timeHorizon, isCalculated]);
 
   const performCalculation = () => {
     const result = calculateTotalTime({
@@ -47,6 +47,11 @@ const TaskDurationCalculator = () => {
     e.preventDefault();
     setIsCalculated(true);
     performCalculation();
+    
+    // Limpiar los campos después del cálculo
+    setFrequency(0);
+    setDuration(0);
+    setSalary(0);
   };
 
   const handleReset = () => {
