@@ -51,12 +51,12 @@ const TaskDurationCalculator = () => {
 
   const handleReset = () => {
     setTaskName('');
-    setFrequency(1);
-    setFrequencyType('day');
-    setDuration(15);
-    setDurationType('minutes');
+    setFrequency(0);
+    setFrequencyType('' as FrequencyType);
+    setDuration(0);
+    setDurationType('' as DurationType);
     setTimeHorizon('5');
-    setSalary(30000);
+    setSalary(0);
     setIsCalculated(false);
     setTotalTime(0);
     setTotalCost(0);

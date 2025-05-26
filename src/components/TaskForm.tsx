@@ -73,18 +73,21 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 id="frequency"
                 type="number"
                 min="1"
-                value={frequency}
-                onChange={(e) => setFrequency(parseInt(e.target.value) || 1)}
+                value={frequency || ''}
+                onChange={(e) => setFrequency(parseInt(e.target.value) || 0)}
                 onFocus={handleFrequencyFocus}
                 className="w-24"
+                style={{
+                  MozAppearance: 'textfield'
+                }}
               />
               <span className="text-gray-500">veces por</span>
               <Select value={frequencyType} onValueChange={(value) => setFrequencyType(value as FrequencyType)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select frequency" />
+                  <SelectValue placeholder="Frecuencia" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="díaday">Día</SelectItem>
+                  <SelectItem value="day">Día</SelectItem>
                   <SelectItem value="week">Semana</SelectItem>
                   <SelectItem value="month">Mes</SelectItem>
                   <SelectItem value="year">Año</SelectItem>
@@ -100,14 +103,17 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 id="duration"
                 type="number"
                 min="1"
-                value={duration}
-                onChange={(e) => setDuration(parseInt(e.target.value) || 1)}
+                value={duration || ''}
+                onChange={(e) => setDuration(parseInt(e.target.value) || 0)}
                 onFocus={handleDurationFocus}
                 className="w-24"
+                style={{
+                  MozAppearance: 'textfield'
+                }}
               />
               <Select value={durationType} onValueChange={(value) => setDurationType(value as DurationType)}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select time unit" />
+                  <SelectValue placeholder="Duración" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="seconds">Segundos</SelectItem>
@@ -149,9 +155,12 @@ const TaskForm: React.FC<TaskFormProps> = ({
                   type="number"
                   min="0"
                   step="1000"
-                  value={salary}
+                  value={salary || ''}
                   onChange={(e) => setSalary(parseInt(e.target.value) || 0)}
                   className="pl-10"
+                  style={{
+                    MozAppearance: 'textfield'
+                  }}
                 />
               </div>
             </div>
@@ -161,9 +170,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
         <div className="flex gap-4">
           <Button 
             type="submit" 
-            // className="flex-1 bg-blue-600 hover:bg-blue-700 transition-colors"
-              className="flex-1 bg-[#A0E00D] hover:bg-[#8FCC0B] transition-colors"
-
+            className="flex-1 bg-[#A0E00D] hover:bg-[#8FCC0B] transition-colors"
           >
             Calcular tiempo total
           </Button>
