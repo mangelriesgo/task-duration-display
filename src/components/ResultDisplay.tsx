@@ -8,7 +8,7 @@ type ResultDisplayProps = {
   formattedTotal: string;
   unit: string;
   frequency: number;
-  frequencyType: 'day' | 'week' | 'month' | 'year';
+  frequencyType: 'día' | 'semana' | 'mes' | 'año';
   duration: number;
   durationType: 'seconds' | 'minutes' | 'hours' | 'days';
   timeHorizon: string;
