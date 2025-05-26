@@ -34,9 +34,9 @@ const ResultDisplay = ({
 
   const getFrequencyText = () => {
     if (frequency === 1) {
-      return `once per ${frequencyType}`;
+      return `una vez cada ${frequencyType}`;
     }
-    return `${frequency} times per ${frequencyType}`;
+    return `${frequency} veces cada ${frequencyType}`;
   };
 
   const getDurationText = () => {
@@ -91,7 +91,7 @@ const ResultDisplay = ({
           </p>
           
           <div className="text-gray-600 text-sm mt-4">
-            <p>Based on {getFrequencyText()} for {getDurationText()}.</p>
+            <p>Basado en {getFrequencyText()} durante {getDurationText()}.</p>
           </div>
         </div>
       </div>
