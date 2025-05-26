@@ -47,7 +47,7 @@ const convertToMinutes = (duration: number, durationType: DurationType): number 
     case 'hours':
       return duration * 60;
     case 'days':
-      return duration * 24 * 60;
+      return duration * 8 * 60; // Changed to consider 8 working hours per day
     default:
       return duration;
   }
