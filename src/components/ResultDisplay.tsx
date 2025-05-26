@@ -74,7 +74,7 @@ const ResultDisplay = ({
           
           <div className="mt-4 mb-2">
             <span className="text-4xl font-bold text-blue-700">{formattedTotal} </span>
-            <span className="text-2xl font-semibold text-blue-600">{unit}</span>
+            <span className="text-2xl font-semibold text-blue-600">{unit} que equivalen a </span>
           </div>
           
           <div className="mb-4 flex items-center">
