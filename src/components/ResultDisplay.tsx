@@ -70,7 +70,7 @@ const ResultDisplay = ({
         </div>
         
         <div className="flex-1">
-          <h2 className="text-2xl font-bold text-gray-800 mb-1">Time Investment Results</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-1">Con una automatización, te ahorrarías</h2>
           
           <div className="mt-4 mb-2">
             <span className="text-4xl font-bold text-blue-700">{formattedTotal} </span>
@@ -83,7 +83,7 @@ const ResultDisplay = ({
           </div>
           
           <p className="text-gray-700 mb-2">
-            You spend <span className="font-semibold">{formattedTotal} {unit}</span> on {getTaskDescription()} over {timeHorizon} {parseInt(timeHorizon) === 1 ? 'year' : 'years'}.
+            Gastaste <span className="font-semibold">{formattedTotal} {unit}</span> on {getTaskDescription()} over {timeHorizon} {parseInt(timeHorizon) === 1 ? 'año' : 'años'}.
           </p>
           
           <p className="text-gray-700 mb-2">
