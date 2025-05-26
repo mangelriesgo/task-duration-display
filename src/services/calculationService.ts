@@ -1,4 +1,3 @@
-
 // Datos:
 // 250 días laborables al año
 // 8 horas laborables por día
@@ -9,7 +8,7 @@
 import { CalculationParams, CalculationResult, DurationType, FrequencyType } from "@/types/calculator";
 
 export const calculateTotalTime = (params: CalculationParams): CalculationResult => {
-  const { frequency, frequencyType, duration, durationType, timeHorizon, salary } = params;
+  const { frequency, frequencyType, duration, durationType, timeHorizon, hourlyRate } = params;
   
   // Convert duration to minutes for consistent calculations
   let durationInMinutes = convertToMinutes(duration, durationType);
@@ -21,9 +20,7 @@ export const calculateTotalTime = (params: CalculationParams): CalculationResult
   const years = parseInt(timeHorizon);
   const totalMinutes = durationInMinutes * occurrencesPerYear * years;
   
-  // Calculate cost based on salary
-  // Working hours per year: 250 days * 8 hours = 2000 hours
-  const hourlyRate = salary / 2000;
+  // Calculate cost based on hourly rate
   // Convert hourly rate to minute rate
   const minuteRate = hourlyRate / 60;
   const cost = totalMinutes * minuteRate;

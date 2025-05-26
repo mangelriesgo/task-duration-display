@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import ResultDisplay from './ResultDisplay';
@@ -12,7 +13,7 @@ const TaskDurationCalculator = () => {
   const [duration, setDuration] = useState<number>(15);
   const [durationType, setDurationType] = useState<DurationType>('minutes');
   const [timeHorizon, setTimeHorizon] = useState<TimeHorizon>('5');
-  const [salary, setSalary] = useState<number>(30000);
+  const [hourlyRate, setHourlyRate] = useState<number>(25);
   const [totalTime, setTotalTime] = useState<number>(0);
   const [totalCost, setTotalCost] = useState<number>(0);
   const [formattedTotal, setFormattedTotal] = useState<string>('');
@@ -24,7 +25,7 @@ const TaskDurationCalculator = () => {
     if (isCalculated) {
       performCalculation();
     }
-  }, [frequencyType, durationType, timeHorizon, salary, isCalculated]);
+  }, [frequencyType, durationType, timeHorizon, hourlyRate, isCalculated]);
 
   const performCalculation = () => {
     const result = calculateTotalTime({
@@ -33,7 +34,7 @@ const TaskDurationCalculator = () => {
       duration,
       durationType,
       timeHorizon,
-      salary
+      hourlyRate
     });
     
     setTotalTime(result.totalTime);
@@ -56,7 +57,7 @@ const TaskDurationCalculator = () => {
     setDuration(0);
     setDurationType('' as DurationType);
     setTimeHorizon('5');
-    setSalary(0);
+    setHourlyRate(0);
     setIsCalculated(false);
     setTotalTime(0);
     setTotalCost(0);
@@ -82,8 +83,8 @@ const TaskDurationCalculator = () => {
           setDurationType={setDurationType}
           timeHorizon={timeHorizon}
           setTimeHorizon={setTimeHorizon}
-          salary={salary}
-          setSalary={setSalary}
+          hourlyRate={hourlyRate}
+          setHourlyRate={setHourlyRate}
           handleSubmit={handleSubmit}
           handleReset={handleReset}
         />

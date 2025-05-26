@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -20,8 +19,8 @@ interface TaskFormProps {
   setDurationType: (value: DurationType) => void;
   timeHorizon: TimeHorizon;
   setTimeHorizon: (value: TimeHorizon) => void;
-  salary: number;
-  setSalary: (value: number) => void;
+  hourlyRate: number;
+  setHourlyRate: (value: number) => void;
   handleSubmit: (e: React.FormEvent) => void;
   handleReset: () => void;
 }
@@ -39,8 +38,8 @@ const TaskForm: React.FC<TaskFormProps> = ({
   setDurationType,
   timeHorizon,
   setTimeHorizon,
-  salary,
-  setSalary,
+  hourlyRate,
+  setHourlyRate,
   handleSubmit,
   handleReset
 }) => {
@@ -144,19 +143,19 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="salary">Salario bruto anual promedio (€)</Label>
+            <Label htmlFor="hourlyRate">Coste por hora (€)</Label>
             <div className="flex items-center">
               <div className="relative w-full">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <Euro className="h-4 w-4 text-gray-500" />
                 </div>
                 <Input 
-                  id="salary"
+                  id="hourlyRate"
                   type="number"
                   min="0"
-                  step="1000"
-                  value={salary || ''}
-                  onChange={(e) => setSalary(parseInt(e.target.value) || 0)}
+                  step="1"
+                  value={hourlyRate || ''}
+                  onChange={(e) => setHourlyRate(parseInt(e.target.value) || 0)}
                   className="pl-10"
                   style={{
                     MozAppearance: 'textfield'

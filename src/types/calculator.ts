@@ -17,5 +17,5 @@ export interface CalculationParams {
   duration: number;
   durationType: DurationType;
   timeHorizon: TimeHorizon;
-  salary: number;
+  hourlyRate: number;
 }
