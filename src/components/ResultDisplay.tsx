@@ -28,7 +28,7 @@ const ResultDisplay = ({
 }: ResultDisplayProps) => {
   
   const getTaskDescription = () => {
-    const taskText = taskName ? `"${taskName}"` : "this task";
+    const taskText = taskName ? `"${taskName}"` : "esta tarea";
     return taskText;
   };
 
