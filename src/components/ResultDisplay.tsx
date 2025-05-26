@@ -83,11 +83,11 @@ const ResultDisplay = ({
           </div>
           
           <p className="text-gray-700 mb-2">
-            Gastaste <span className="font-semibold">{formattedTotal} {unit}</span> on {getTaskDescription()} over {timeHorizon} {parseInt(timeHorizon) === 1 ? 'año' : 'años'}.
+            Has dedicado <span className="font-semibold">{formattedTotal} {unit}</span> en {getTaskDescription()} a lo largo {timeHorizon} {parseInt(timeHorizon) === 1 ? 'año' : 'años'}.
           </p>
           
           <p className="text-gray-700 mb-2">
-            The economic cost of this time is <span className="font-semibold">{formattedCost}</span>.
+            El coste económico de esta tarea es <span className="font-semibold">{formattedCost}</span>.
           </p>
           
           <div className="text-gray-600 text-sm mt-4">
