@@ -1,4 +1,3 @@
-
 // Datos:
 // 250 días laborables al año
 // 8 horas laborables por día
@@ -26,8 +25,8 @@ export const calculateTotalTime = (params: CalculationParams): CalculationResult
   const minuteRate = hourlyRate / 60;
   const cost = totalMinutes * minuteRate;
 
-  // Format time display
-  const { formattedTotal, unit } = formatTime(totalMinutes);
+  // Format time display - always show in hours
+  const { formattedTotal, unit } = formatTimeInHours(totalMinutes);
   const formattedCost = cost.toLocaleString('es-ES', { style: 'currency', currency: 'EUR' });
   
   return {
@@ -67,6 +66,16 @@ const calculateOccurrencesPerYear = (frequency: number, frequencyType: Frequency
     default:
       return 0;
   }
+};
+
+export const formatTimeInHours = (totalMinutes: number): { formattedTotal: string, unit: string } => {
+  const totalHours = Math.round(totalMinutes / 60);
+  const formattedHours = totalHours.toLocaleString('es-ES');
+  
+  return { 
+    formattedTotal: formattedHours, 
+    unit: 'horas' 
+  };
 };
 
 export const formatTime = (totalMinutes: number): { formattedTotal: string, unit: string } => {
