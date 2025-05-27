@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Clock, Timer, Calendar, Euro } from 'lucide-react';
@@ -87,6 +86,16 @@ const ResultDisplay = ({
     }
   };
 
+  // Format numbers with dots for thousands
+  const formatNumberWithDots = (numStr: string): string => {
+    return numStr.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  };
+
+  // Format cost without decimals
+  const formatCostWithoutDecimals = (costStr: string): string => {
+    return costStr.replace(/,\d{2}/, '');
+  };
+
   return (
     <Card className="p-6 shadow-md bg-gradient-to-br from-blue-50 to-teal-50 border-t-4 border-blue-500">
       <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
@@ -98,25 +107,40 @@ const ResultDisplay = ({
           <h2 className="text-2xl font-bold text-gray-800 mb-1">Con una automatización, te ahorrarías</h2>
           
           <div className="mt-4 mb-2">
-            <span className="text-4xl font-bold text-blue-700">{formattedTotal} </span>
+            <span className="text-4xl font-bold text-blue-700">{formatNumberWithDots(formattedTotal)} </span>
             <span className="text-2xl font-semibold text-blue-600">{unit} que equivalen a </span>
           </div>
           
           <div className="mb-4 flex items-center">
             <Euro className="h-5 w-5 text-green-600 mr-2" />
-            <span className="text-2xl font-bold text-green-700">{formattedCost}</span>
+            <span className="text-2xl font-bold text-green-700">{formatCostWithoutDecimals(formattedCost)}</span>
           </div>
           
           <p className="text-gray-700 mb-2">
-            Has dedicado <span className="font-semibold">{formattedTotal} {unit}</span> en {getTaskDescription()} a lo largo {timeHorizon} {parseInt(timeHorizon) === 1 ? 'año' : 'años'}.
+            Has dedicado <span className="font-semibold">{formatNumberWithDots(formattedTotal)} {unit}</span> en {getTaskDescription()} a lo largo {timeHorizon} {parseInt(timeHorizon) === 1 ? 'año' : 'años'}.
           </p>
           
           <p className="text-gray-700 mb-2">
-            El coste económico de esta tarea es <span className="font-semibold">{formattedCost}</span>.
+            El coste económico de esta tarea es <span className="font-semibold">{formatCostWithoutDecimals(formattedCost)}</span>.
           </p>
           
           <div className="text-gray-600 text-sm mt-4">
             <p>Basado en {getFrequencyText()} durante {getDurationText()}.</p>
+          </div>
+
+          <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+            <p className="text-gray-800 font-medium">
+              En NoCodeB2B, podemos ayudarte a conseguir estos ahorros, accede{' '}
+              <a 
+                href="https://www.nocodeb2b.es/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 underline font-semibold"
+              >
+                aquí
+              </a>
+              .
+            </p>
           </div>
         </div>
       </div>
