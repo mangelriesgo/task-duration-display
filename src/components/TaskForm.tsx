@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -66,7 +67,10 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="frequency">Frecuencia</Label>
+            <div className="space-y-1">
+              <Label htmlFor="frequency">Frecuencia</Label>
+              <p className="text-sm text-gray-600">(cada cuánto tiempo haces la tarea)</p>
+            </div>
             <div className="flex items-center space-x-2">
               <Input 
                 id="frequency"
@@ -96,7 +100,10 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="duration">Duración</Label>
+            <div className="space-y-1">
+              <Label htmlFor="duration">Duración</Label>
+              <p className="text-sm text-gray-600">(cuánto dura la tarea)</p>
+            </div>
             <div className="flex items-center space-x-2">
               <Input 
                 id="duration"
