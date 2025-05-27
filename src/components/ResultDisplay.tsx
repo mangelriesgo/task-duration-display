@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Clock, Timer, Calendar, Euro } from 'lucide-react';
@@ -39,7 +40,7 @@ const ResultDisplay = ({
       'month': 'mes',
       'year': 'año'
     };
-    return translations[type];
+    return translations[type] || type;
   };
 
   const translateDurationType = (type: DurationType): string => {
@@ -49,7 +50,7 @@ const ResultDisplay = ({
       'hours': 'horas',
       'days': 'días'
     };
-    return translations[type];
+    return translations[type] || type;
   };
 
   const getFrequencyText = () => {
@@ -63,7 +64,9 @@ const ResultDisplay = ({
   const getDurationText = () => {
     const translatedDuration = translateDurationType(durationType);
     if (duration === 1) {
-      return `1 ${translatedDuration.slice(0, -1)}`; // Remove 's' from the end
+      // Only remove 's' if the translation ends with 's'
+      const singular = translatedDuration.endsWith('s') ? translatedDuration.slice(0, -1) : translatedDuration;
+      return `1 ${singular}`;
     }
     return `${duration} ${translatedDuration}`;
   };
