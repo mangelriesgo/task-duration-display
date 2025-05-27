@@ -1,16 +1,16 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Clock, Timer, Calendar, Euro } from 'lucide-react';
+import { FrequencyType, DurationType } from '@/types/calculator';
 
 type ResultDisplayProps = {
   taskName: string;
   formattedTotal: string;
   unit: string;
   frequency: number;
-  frequencyType: 'día' | 'semana' | 'mes' | 'año';
+  frequencyType: FrequencyType;
   duration: number;
-  durationType: 'seconds' | 'minutes' | 'hours' | 'days';
+  durationType: DurationType;
   timeHorizon: string;
   formattedCost: string;
 };
@@ -32,18 +32,40 @@ const ResultDisplay = ({
     return taskText;
   };
 
+  const translateFrequencyType = (type: FrequencyType): string => {
+    const translations = {
+      'day': 'día',
+      'week': 'semana',
+      'month': 'mes',
+      'year': 'año'
+    };
+    return translations[type];
+  };
+
+  const translateDurationType = (type: DurationType): string => {
+    const translations = {
+      'seconds': 'segundos',
+      'minutes': 'minutos', 
+      'hours': 'horas',
+      'days': 'días'
+    };
+    return translations[type];
+  };
+
   const getFrequencyText = () => {
+    const translatedFrequency = translateFrequencyType(frequencyType);
     if (frequency === 1) {
-      return `una vez cada ${frequencyType}`;
+      return `una vez cada ${translatedFrequency}`;
     }
-    return `${frequency} veces cada ${frequencyType}`;
+    return `${frequency} veces cada ${translatedFrequency}`;
   };
 
   const getDurationText = () => {
+    const translatedDuration = translateDurationType(durationType);
     if (duration === 1) {
-      return `1 ${durationType.slice(0, -1)}`; // Remove 's' from the end
+      return `1 ${translatedDuration.slice(0, -1)}`; // Remove 's' from the end
     }
-    return `${duration} ${durationType}`;
+    return `${duration} ${translatedDuration}`;
   };
 
   const getTimeIcon = () => {
