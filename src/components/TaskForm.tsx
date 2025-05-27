@@ -86,7 +86,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
               />
               <span className="text-gray-500">veces por</span>
               <Select value={frequencyType} onValueChange={(value) => setFrequencyType(value as FrequencyType)}>
-                <SelectTrigger className="w-28">
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Frecuencia" />
                 </SelectTrigger>
                 <SelectContent>
@@ -118,7 +118,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 }}
               />
               <Select value={durationType} onValueChange={(value) => setDurationType(value as DurationType)}>
-                <SelectTrigger className="w-32">
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Duración" />
                 </SelectTrigger>
                 <SelectContent>
@@ -136,7 +136,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           <div className="space-y-2">
             <Label htmlFor="timeHorizon">Horizonte de tiempo</Label>
             <Select value={timeHorizon} onValueChange={(value) => setTimeHorizon(value as TimeHorizon)}>
-              <SelectTrigger className="w-32">
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Select time horizon" />
               </SelectTrigger>
               <SelectContent>
@@ -152,7 +152,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           <div className="space-y-2">
             <Label htmlFor="hourlyRate">Coste por hora (€)</Label>
             <div className="flex items-center">
-              <div className="relative w-32">
+              <div className="relative w-full">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                   <Euro className="h-4 w-4 text-gray-500" />
                 </div>
