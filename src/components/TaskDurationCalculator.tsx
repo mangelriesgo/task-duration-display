@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import ResultDisplay from './ResultDisplay';
@@ -67,9 +66,9 @@ const TaskDurationCalculator = () => {
   };
 
   return (
-    <div className="grid gap-8 md:grid-cols-1">
-      <Card className="p-6 shadow-md w-[96%] mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-gray-800">Información de la tarea</h2>
+    <div className="grid gap-6 sm:gap-8">
+      <Card className="p-3 sm:p-4 lg:p-6 shadow-md w-full mx-auto">
+        <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800">Información de la tarea</h2>
         <TaskForm
           taskName={taskName}
           setTaskName={setTaskName}

@@ -54,7 +54,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         <div className="space-y-2">
           <Label htmlFor="taskName">Nombre de la tarea (opcional)</Label>
           <Input 
@@ -65,13 +65,13 @@ const TaskForm: React.FC<TaskFormProps> = ({
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
           <div className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="frequency">Frecuencia</Label>
-              <p className="text-sm text-gray-600">(cada cuánto tiempo haces la tarea)</p>
+              <p className="text-xs sm:text-sm text-gray-600">(cada cuánto tiempo haces la tarea)</p>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
               <Input 
                 id="frequency"
                 type="number"
@@ -79,14 +79,14 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 value={frequency || ''}
                 onChange={(e) => setFrequency(parseInt(e.target.value) || 0)}
                 onFocus={handleFrequencyFocus}
-                className="w-24"
+                className="w-20 sm:w-24"
                 style={{
                   MozAppearance: 'textfield'
                 }}
               />
-              <span className="text-gray-500">veces por</span>
+              <span className="text-sm text-gray-500 hidden sm:inline">veces por</span>
               <Select value={frequencyType} onValueChange={(value) => setFrequencyType(value as FrequencyType)}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full sm:flex-1">
                   <SelectValue placeholder="Frecuencia" />
                 </SelectTrigger>
                 <SelectContent>
@@ -102,9 +102,9 @@ const TaskForm: React.FC<TaskFormProps> = ({
           <div className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="duration">Duración</Label>
-              <p className="text-sm text-gray-600">(cuánto dura la tarea)</p>
+              <p className="text-xs sm:text-sm text-gray-600">(cuánto dura la tarea)</p>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2">
               <Input 
                 id="duration"
                 type="number"
@@ -112,13 +112,13 @@ const TaskForm: React.FC<TaskFormProps> = ({
                 value={duration || ''}
                 onChange={(e) => setDuration(parseInt(e.target.value) || 0)}
                 onFocus={handleDurationFocus}
-                className="w-24"
+                className="w-20 sm:w-24"
                 style={{
                   MozAppearance: 'textfield'
                 }}
               />
               <Select value={durationType} onValueChange={(value) => setDurationType(value as DurationType)}>
-                <SelectTrigger className="w-full">
+                <SelectTrigger className="w-full sm:flex-1">
                   <SelectValue placeholder="Duración" />
                 </SelectTrigger>
                 <SelectContent>
@@ -132,7 +132,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="space-y-4 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
           <div className="space-y-2">
             <Label htmlFor="timeHorizon">Horizonte de tiempo</Label>
             <Select value={timeHorizon} onValueChange={(value) => setTimeHorizon(value as TimeHorizon)}>
@@ -173,7 +173,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
           </div>
         </div>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
           <Button 
             type="submit" 
             className="flex-1 bg-[#A0E00D] hover:bg-[#8FCC0B] transition-colors"
@@ -184,11 +184,12 @@ const TaskForm: React.FC<TaskFormProps> = ({
           <Button 
             type="button"
             variant="outline"
-            className="flex items-center gap-2"
+            className="flex items-center justify-center gap-2"
             onClick={handleReset}
           >
             <RefreshCw size={16} />
-            Limpiar Formulario
+            <span className="hidden sm:inline">Limpiar Formulario</span>
+            <span className="sm:hidden">Limpiar</span>
           </Button>
         </div>
       </div>
